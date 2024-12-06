@@ -1,8 +1,8 @@
 import fs from "fs/promises"
 
-export const findTotalDistance = async () => {
+export const findTotalDistance = async (filePath) => {
   try {
-    const data = await fs.readFile("./data.txt", "utf8")
+    const data = await fs.readFile(filePath, "utf8")
     const numbers = data.match(/\d+/g).map(Number)
 
     const list1 = []
@@ -32,4 +32,5 @@ export const findTotalDistance = async () => {
   }
 }
 
-findTotalDistance()
+findTotalDistance("./exampleData.txt")
+findTotalDistance("./data.txt")
